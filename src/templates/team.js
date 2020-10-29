@@ -11,10 +11,10 @@ const Team = ({ data }) => {
         alignItems: "center",
       }}
     >
-      <h1>{data.team.teamInfo.name}</h1>
-      <p>{data.team.teamInfo.sport}</p>
+      <h1>{data.contentfulTeam.teamInfo.name}</h1>
+      <p>{data.contentfulTeam.teamInfo.sport}</p>
       <div>
-        {data.team.coaches.map(coach => (
+        {data.contentfulTeam.coaches.map(coach => (
           <p>{coach}</p>
         ))}
       </div>
@@ -26,7 +26,7 @@ export default Team
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    team: contentfulTeam(slug: { eq: $slug }) {
+    contentfulTeam(slug: { eq: $slug }) {
       slug
       teeball
       coed
