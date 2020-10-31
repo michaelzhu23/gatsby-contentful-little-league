@@ -1,5 +1,4 @@
 const path = require("path")
-const slash = require("slash")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -27,7 +26,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allContentfulTeam.edges.forEach(team => {
         createPage({
           path: `/teams/${team.node.slug}/`,
-          component: slash(teamTemplate),
+          component: teamTemplate,
           context: {
             slug: team.node.slug,
           },
